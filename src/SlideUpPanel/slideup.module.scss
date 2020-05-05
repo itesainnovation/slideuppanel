@@ -1,0 +1,148 @@
+@import '../theme';
+.panelContainer {
+  width: 100vw;
+  height: auto;
+  position: relative;
+  transform: translateY(calc(100% - 80px));
+  .panel {
+    width: 100%;
+    text-align: center;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    max-width: 1000px;
+    z-index: 2000;
+    flex: 1 1 0%;
+    position: fixed;
+    right: 0;
+    left: 0;
+    margin: auto;
+    display: block;
+    background-color: $panelBackground;
+    transition: all ease 500ms;
+    /*box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2), 10px 10px 10px 10px  rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);*/
+    .panelHeader{
+      height: 80px;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+      .arrows{
+        animation: bounce 1s infinite alternate;
+        -webkit-animation: bounce 1s infinite alternate;
+      }
+      .startMessage{
+        color: $panelColor;
+        font-family: Poppins,sans-serif;
+        font-weight: 600;
+        font-size: 1.2em;
+        margin-top: 0;
+        text-align: left;
+        margin-left: 6%;
+        width: 88%;
+        .messageLogo{
+          height: 1.6rem;
+        }
+        span{
+          vertical-align: top;
+        }
+      }
+    }
+    .slideTitle{
+      font-family: Poppins,sans-serif;
+      font-weight: 600;
+      font-size: 1.2em;
+      margin-top: 0;
+      text-align: left;
+      color: $panelColor;
+      margin-left: 6%;
+      margin-bottom: 20px;
+      width: 88%;
+    }
+    .slideButton{
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      font-weight: 800;
+      display: inline-block;
+      left: 0;
+      text-transform: unset;
+      width: 90%;
+      font-family: 'Poppins', sans-serif;
+      height: 53px;
+      text-transform: uppercase;
+    }
+    .field{
+      width: 90%;
+      margin-left: 0;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      font-family: 'Poppins', sans-serif;
+    }
+    .dataPolicyText{
+      color: $panelColor;
+      text-align: left;
+      margin-left: 6%;
+      margin-right: 6%;
+      font-size: 0.8em;
+    }
+    .dataPolicyContainer {
+      margin-bottom: 20px;
+    }
+    .mercadoPago{
+      position: absolute;
+      top: 41px;
+      right: 6%;
+      width: 90px;
+    }
+    .poweredBy {
+      width: 20%;
+      display: inline-block;
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      margin: auto;
+      @media (min-width: 767px) {
+        margin-top: -20px;
+        height: 40px;
+        object-fit: contain;
+      }
+    }
+    .bottomContainer{
+      height: 36.5px;
+      .nextButton{
+        float: right;
+        margin-right: 5%;
+      }
+      .progressCircular{
+        float: right;
+        margin-right: 5%;
+      }
+    }
+
+  }
+}
+
+.toggle {
+  font-size: 30px;
+}
+
+
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(+7px);
+  }
+}
+
+@-webkit-keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(+7px);
+  }
+}

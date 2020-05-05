@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+  width: 100vw;
+  overflow: hidden;
+}
+#menu-{
+  z-index: 1401!important;
+}
