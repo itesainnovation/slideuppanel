@@ -7,6 +7,7 @@ import {createMuiTheme, ThemeProvider} from "@material-ui/core";
 import SwipeableViews from 'react-swipeable-views';
 import Button from "@material-ui/core/Button";
 import {PageBalls} from "../PageBalls/PageBalls";
+import TextField from "@material-ui/core/TextField";
 
 let posX = new Animated.Value(0);
 const interStyle = {
@@ -30,8 +31,18 @@ export function SlideUpPanel({}) {
     const [panelOpen, setPanelOpen] = useState(false);
     const [toggleStyle, setToggleStyle] = useState({})
     const [index, setIndex] = useState(0);
+    const [error, setError] = useState(false);
 
+    const [form, setForm] = useState({
+        name: ''
+    })
 
+    const handleChange = e => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
+    }
 
     useEffect(() => {
         updatePanel();
@@ -138,6 +149,16 @@ export function SlideUpPanel({}) {
                                <p className={styles.slideTitle}> {
                                    'Titulo de slide'
                                } </p>
+                               <TextField
+                                   value={form.name}
+                                   name={'name'}
+                                   onChange={handleChange}
+                                   error={error}
+                                   label="Nombre"
+                                   className={styles.field}
+                                   margin="normal"
+                                   variant="outlined"
+                               />
                            </div>
                         </SwipeableViews>
                         <div className={styles.bottomContainer}>
