@@ -110,7 +110,15 @@ export function SlideUpPanel({}) {
         handleChangeIndex(index + 1);
     };
 
-
+    //Aca es donde validamos si puede pasar sino restamos index
+    useEffect(()=>{
+        if (index === 1){
+            if (!form.name || !form.zone){
+                setIndex(index-1)
+                setError(true);
+            }
+        }
+    },[index])
 
     const theme = createMuiTheme({
         palette: {
@@ -172,6 +180,7 @@ export function SlideUpPanel({}) {
                                        Zona
                                    </InputLabel>
                                    <Select
+                                       error={error}
                                        name={'zone'}
                                        value={form.zone}
                                        onChange={handleChange}
