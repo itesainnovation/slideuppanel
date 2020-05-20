@@ -8,6 +8,11 @@ import SwipeableViews from 'react-swipeable-views';
 import Button from "@material-ui/core/Button";
 import {PageBalls} from "../PageBalls/PageBalls";
 import TextField from "@material-ui/core/TextField";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
+import MenuItem from "@material-ui/core/MenuItem";
 
 let posX = new Animated.Value(0);
 const interStyle = {
@@ -34,7 +39,8 @@ export function SlideUpPanel({}) {
     const [error, setError] = useState(false);
 
     const [form, setForm] = useState({
-        name: ''
+        name: '',
+        zone: ''
     })
 
     const handleChange = e => {
@@ -110,7 +116,7 @@ export function SlideUpPanel({}) {
         palette: {
             primary: {
                 main: styles.buttonBackground,
-                contrastText: styles.buttonColor
+                contrastText: styles.buttonColor,
             },
             secondary: {
                 main: '#ff0013',
@@ -141,11 +147,11 @@ export function SlideUpPanel({}) {
                             <Animated.div style={toggleStyle}><i style={{color: '#36284D'}} className={'ion-md-arrow-dropup'}/></Animated.div>
 
                             <div className={styles.startMessage}>
-                                <span>{'Mensaje de start'}</span>
+                                <span>{'🛒 Mensaje de start'}</span>
                             </div>
                         </div>
                         <SwipeableViews enableMouseEvents={true} index={index} onChangeIndex={handleChangeIndex}>
-                           <div style={{height: 200}}>
+                           <div>
                                <p className={styles.slideTitle}> {
                                    'Titulo de slide'
                                } </p>
@@ -159,6 +165,51 @@ export function SlideUpPanel({}) {
                                    margin="normal"
                                    variant="outlined"
                                />
+                               <FormControl variant="outlined" className={styles.field}>
+                                   <InputLabel
+                                       htmlFor="outlined-age-simple"
+                                   >
+                                       Zona
+                                   </InputLabel>
+                                   <Select
+                                       name={'zone'}
+                                       value={form.zone}
+                                       onChange={handleChange}
+                                       input={
+                                           <OutlinedInput
+                                               className={styles.selectInput}
+                                               labelWidth={40}
+                                           />
+                                       }
+                                   >
+                                       <MenuItem value="">
+                                           <em>None</em>
+                                       </MenuItem>
+                                       <MenuItem value={'Buenos Aires'}>Buenos Aires</MenuItem>
+                                       <MenuItem value={'Catamarca'}>Catamarca</MenuItem>
+                                       <MenuItem value={'Caba'}>CABA</MenuItem>
+                                       <MenuItem value={'Chaco'}>Chaco</MenuItem>
+                                       <MenuItem value={'Chubut'}>Chubut</MenuItem>
+                                       <MenuItem value={'Córdoba'}>Córdoba</MenuItem>
+                                       <MenuItem value={'Corrientes'}>Corrientes</MenuItem>
+                                       <MenuItem value={'Entre Ríos'}>Entre Ríos</MenuItem>
+                                       <MenuItem value={'Formosa'}>Formosa</MenuItem>
+                                       <MenuItem value={'La Pampa'}>La Pampa</MenuItem>
+                                       <MenuItem value={'La Rioja'}>La Rioja</MenuItem>
+                                       <MenuItem value={'Mendoza'}>Mendoza</MenuItem>
+                                       <MenuItem value={'Misiones'}>Misiones</MenuItem>
+                                       <MenuItem value={'Neuquén'}>Neuquén</MenuItem>
+                                       <MenuItem value={'Río Negro'}>Río Negro</MenuItem>
+                                       <MenuItem value={'Salta'}>Salta</MenuItem>
+                                       <MenuItem value={'San Juan'}>San Juan</MenuItem>
+                                       <MenuItem value={'San Luis'}>San Luis</MenuItem>
+                                       <MenuItem value={'Santa Cruz'}>Santa Cruz</MenuItem>
+                                       <MenuItem value={'Santa Fe'}>Santa Fe</MenuItem>
+                                       <MenuItem value={'Santiago del Estero'}>Santiago del Estero</MenuItem>
+                                       <MenuItem value={'Tierra del Fuego'}>Tierra del Fuego</MenuItem>
+                                       <MenuItem value={'Tucumán'}>Tucumán</MenuItem>
+                                   </Select>
+                               </FormControl>
                            </div>
                         </SwipeableViews>
                         <div className={styles.bottomContainer}>
